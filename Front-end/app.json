@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "smartroute",
+    "slug": "smartroute",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

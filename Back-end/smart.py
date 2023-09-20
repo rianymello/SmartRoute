@@ -42,7 +42,7 @@ def simulate(length, density, vmax, p, num_steps):
     average_velocity = total_velocity / (num_steps * length)
     return 1 - average_velocity  # Correct for the correct velocity
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     length = 100  # Length of the road
     density_range = np.linspace(0.01, 1.0, 20)  # Different car densities
     vmax = 5  # Maximum car velocity
@@ -65,4 +65,4 @@ if _name_ == "_main_":
         plt.text(density_range[i], avg_velocities[i], f'({density_range[i]:.2f}, {avg_velocities[i]:.2f})')
 
     plt.legend()
-plt.show()
+    plt.show()

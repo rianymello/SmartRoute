@@ -5,7 +5,7 @@ import Modal from 'react-native-modal';
 import { Link } from 'expo-router';
 
 export default function EditScreenInfo({ path }: { path: string }) {
-  const data = Array.from({ length: 7 }, (_, index) => ({ key: String(index) }));
+  const data = Array.from({ length: 4 }, (_, index) => ({ key: String(index) }));
   const [isModalVisible, setModalVisible] = useState(false);
   const [inputTextGoTo, setInputTextGoTo] = useState('');
   const [inputTextCurrentLocation, setInputTextCurrentLocation] = useState('');
@@ -38,7 +38,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
         </View>
 
         <View style={styles.modalButtonContainer}>
-          <Link href="/modal" asChild>
+          <Link href="/route1" asChild>
             <TouchableOpacity
               style={styles.modalButtonNo}
               onPress={toggleModal}
@@ -46,7 +46,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
               <Text style={styles.modalButtonText}>No</Text>
             </TouchableOpacity>
           </Link>
-          <Link href="/teste" asChild>
+          <Link href="/route2" asChild>
             <TouchableOpacity
               style={styles.modalButtonYes}
               onPress={toggleModal}
@@ -82,7 +82,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           <TextInput
             style={styles.inputText}
             placeholder="Go to..."
-            onFocus={() => setShowSecondInput(true)} // Mostrar o segundo campo quando o primeiro está em foco
+            onFocus={() => setShowSecondInput(true)} 
             onChangeText={(text) => setInputTextGoTo(text)}
             value={inputTextGoTo}
             onSubmitEditing={handleEnterPress}
@@ -110,24 +110,129 @@ export default function EditScreenInfo({ path }: { path: string }) {
 
         {/* Novo container "Últimas Viagens" */}
         <View style={[styles.lastTripsContainer, { marginTop: 10 }]}>
-          <Text style={[styles.titulo, { fontWeight: 'bold' }]}>Últimas Viagens</Text>
+          <Text style={[styles.titulo, { fontWeight: 'bold' }]}>Last trips</Text>
           <View style={styles.tripItem}>
             <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
               <Icon name="car" size={24} color="#ffffff" />
             </View>
             <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
-                <Text style={styles.tripText}>Newark</Text>
+                <Text style={styles.tripText}>Greenville</Text>
                 <Icon name="arrow-right" size={16} color="white" />
-                <Text style={styles.tripText}>Yonkers</Text>
+                <Text style={styles.tripText}>Blue Peak</Text>
               </View>
             </View>
             <View style={[styles.tripItemRight, styles.tripItemPadding]}>
               <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>43km</Text>
             </View>
           </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Riverdale </Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}>Sun City</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>81km</Text>
+            </View>
+          </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Serene Hills</Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}>Gold Valley</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>39km</Text>
+            </View>
+          </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Newirk</Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}>Yonkars</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>10km</Text>
+            </View>
+          </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Golden Beach</Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}>Starville</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>89km</Text>
+            </View>
+          </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Meadowview</Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}>Silver Springs</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>23km</Text>
+            </View>
+          </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Maplewood</Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}> Emerald Bay</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>41km</Text>
+            </View>
+          </View>
+          <View style={styles.tripItem}>
+            <View style={[styles.tripItemLeft, styles.tripItemPadding]}>
+              <Icon name="car" size={24} color="#ffffff" />
+            </View>
+            <View style={[styles.tripItemCenter, styles.tripItemPadding]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
+                <Text style={styles.tripText}>Pinecrest</Text>
+                <Icon name="arrow-right" size={16} color="white" />
+                <Text style={styles.tripText}>Oceanview</Text>
+              </View>
+            </View>
+            <View style={[styles.tripItemRight, styles.tripItemPadding]}>
+              <Text style={[styles.tripText, { color: 'rgba(255, 255, 255, 0.5)' }]}>22km</Text>
+            </View>
+          </View>
+         
         </View>
-
         <Modal isVisible={isModalVisible}>
           {renderModalContent()}
         </Modal>
@@ -147,7 +252,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 10,
     paddingVertical: 10,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 50,
     borderColor: 'white',
     color: 'white',

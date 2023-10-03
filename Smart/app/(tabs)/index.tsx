@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, FlatList, ScrollView, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Modal from 'react-native-modal';
 import { Link } from 'expo-router';
@@ -24,6 +24,13 @@ export default function EditScreenInfo({ path }: { path: string }) {
     setShowSecondInput(false); // Ocultar o segundo campo
   };
 
+  const images = [
+    require('../../assets/images/rnotice1.jpg'),
+    require('../../assets/images/rnotice2.jpg'),
+    require('../../assets/images/rnotice3.jpg'),
+    require('../../assets/images/rnotice4.jpg'),
+  ];
+  
   const renderModalContent = () => {
     return (
       <View style={styles.modalContainer}>
@@ -95,18 +102,24 @@ export default function EditScreenInfo({ path }: { path: string }) {
           <Text style={[styles.noticeTitle, { fontWeight: 'bold' }]}>Notices</Text>
           <Text style={styles.seeAll}>See All</Text>
         </View>
-
-        {/* FlatList para o carrossel de quadrados cinzas */}
         <FlatList
           data={data}
           horizontal
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <View style={styles.graySquare} />
+          renderItem={({ item, index }) => (
+            <View style={{ borderRadius: 16, overflow: 'hidden' }}>
+              <ImageBackground
+                source={images[index]}
+                style={styles.graySquare}
+              >
+                {/* Conteúdo do item */}
+              </ImageBackground>
+            </View>
           )}
           keyExtractor={(item) => item.key}
           contentContainerStyle={styles.squareContainer}
         />
+
 
         {/* Novo container "Últimas Viagens" */}
         <View style={[styles.lastTripsContainer, { marginTop: 10 }]}>
@@ -292,13 +305,13 @@ const styles = StyleSheet.create({
   squareContainer: {
     marginTop: 20,
     paddingHorizontal: 20,
+    gap: 20,
   },
   graySquare: {
     width: 130,
     height: 130,
-    borderRadius: 15,
-    backgroundColor: 'gray',
-    marginRight: 10,
+    borderRadius: 30,
+    marginRight: 0,
   },
   titulo: {
     fontSize: 20,
